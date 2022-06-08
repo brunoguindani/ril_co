@@ -21,12 +21,14 @@ p_color = "yellow"
 
 device_cpu = torch.device("cpu")
 
+_lambda_ril_prior = 0.75
+
 class RIL_CO(AIL):
     def __init__(self, observation_space, action_space, device, args):
         if not hasattr(self, 'b_size_multiplier'):        
             self.b_size_multiplier = 5  # 5 
         super(RIL_CO, self).__init__(observation_space, action_space, device, args)
-        self.ril_prior = 0.5    # lambda in the paper. 
+        self.ril_prior = _lambda_ril_prior    # lambda in the paper. 
 
     ## @override 
     def create_networks(self):
@@ -182,7 +184,7 @@ class RIL(AIL):
         if not hasattr(self, 'b_size_multiplier'):        
             self.b_size_multiplier = 5  # 5 
         super(RIL, self).__init__(observation_space, action_space, device, args)
-        self.ril_prior = 0.5 
+        self.ril_prior = _lambda_ril_prior 
 
     ## @override 
     def create_networks(self):
