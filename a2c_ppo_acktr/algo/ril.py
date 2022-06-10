@@ -21,7 +21,7 @@ p_color = "yellow"
 
 device_cpu = torch.device("cpu")
 
-_lambda_ril_prior = 0.9
+_lambda_ril_prior = 0.1
 
 class RIL_CO(AIL):
     def __init__(self, observation_space, action_space, device, args):
