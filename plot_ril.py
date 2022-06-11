@@ -77,7 +77,7 @@ def plot():
     m_return_list = discr.m_return_list
 
     # main plot with policy snapshots in main paper
-    plot_methods = ["ril_co_apl", "ail_apl", "ail_logistic", "ail_unhinged", "fairl", "vild", "bc"] 
+    plot_methods = ["ril_co_apl", "lambda0.1", "lambda0.75", "lambda0.9"]#, "ail_apl", "ail_logistic", "ail_unhinged", "fairl", "vild", "bc"] 
     plot_aug = ""
 
     # ## main plot with gaussian noise in main paper
@@ -88,7 +88,7 @@ def plot():
     # plot_methods = ["ril_co_apl", "ril_co_logistic", "ril_apl", "ril_logistic"]  
     # plot_aug = "_app"
 
-    seed_list = [1, 2, 3, 4, 5]
+    seed_list = [1]
     # seed_list = [1,1]
     seed_num = len(seed_list)
     print(seed_list)
@@ -158,9 +158,51 @@ def plot():
             if cat:
                 R_test_avg = np.concatenate(R_test_avg, axis=1) # array [iter, test_episode * seed]
                 R_test_all += [R_test_avg]
-                gail_legend += ["RIL-Co (AP)"]
+                gail_legend += ["$\\lambda = 0.5$ (default)"]
                 c_tmp += ["r"]
                 l_tmp += ["-"]
+
+        lam_col_dict = {0.1: 'blue', 0.75: 'green', 0.9: 'orange'}
+        for lam, col in lam_col_dict.items():
+            _lambda = str(lam)
+            if any("lambda" + _lambda in s for s in plot_methods):
+                """ RIL_CO """
+                R_test_avg = []
+                cat = 1
+                args.il_algo = "ril_co"
+                args.ail_loss_type = "apl"
+                args.ail_saturate = 1
+                method_name = args.algo.upper() + "_" + args.il_algo.upper() 
+                hypers = "ec%0.5f" % args.entropy_coef + "_gp%0.3f" % args.gp_lambda
+                if "RIL" in args.il_algo.upper() :
+                    hypers += "_%s_sat%d" % (args.ail_loss_type, args.ail_saturate)
+                    # hypers += "_%s_sat%d_ver0" % (args.ail_loss_type, args.ail_saturate)
+                if args.reward_std: hypers += "_rs"
+    
+                for seed in seed_list:
+                    exp_name = "%s-%s-%s_s%d_lambda%s" % (traj_name, method_name, hypers, seed, _lambda)
+                    filename = "./results_IL/%s/%s/%s-%s" % (method_name, env_name, env_name, exp_name)
+    
+                    print(filename) 
+    
+                    R_test_avg_i = load(filename, limit)
+                    if R_test_avg_i[0, 0] == -999:
+                        cat = 0
+                        print("cannot load %s" % exp_name) 
+                    else:
+                        load_iter = R_test_avg_i.shape[0]
+                        if load_iter < max_len:
+                            max_len = load_iter 
+                            for i in range(0, seed-1):
+                                R_test_avg[i] = R_test_avg[i][0:max_len, :]
+                        R_test_avg_i = R_test_avg_i[0:max_len, :]
+                        R_test_avg += [R_test_avg_i]
+                if cat:
+                    R_test_avg = np.concatenate(R_test_avg, axis=1) # array [iter, test_episode * seed]
+                    R_test_all += [R_test_avg]
+                    gail_legend += ["$\\lambda = " + _lambda + "$"]
+                    c_tmp += [col]
+                    l_tmp += ["-"]
 
         if any("ril_co_logistic" in s for s in plot_methods):
             """ RIL_CO """
