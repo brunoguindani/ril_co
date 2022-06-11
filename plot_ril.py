@@ -152,6 +152,7 @@ def plot():
                     if load_iter < max_len:
                         max_len = load_iter 
                         for i in range(0, seed-1):
+                            R_test_avg.append(R_test_avg_i)
                             R_test_avg[i] = R_test_avg[i][0:max_len, :]
                     R_test_avg_i = R_test_avg_i[0:max_len, :]
                     R_test_avg += [R_test_avg_i]
@@ -191,6 +192,7 @@ def plot():
                     if load_iter < max_len:
                         max_len = load_iter 
                         for i in range(0, seed-1):
+                            R_test_avg.append(R_test_avg_i)
                             R_test_avg[i] = R_test_avg[i][0:max_len, :]
                     R_test_avg_i = R_test_avg_i[0:max_len, :]
                     R_test_avg += [R_test_avg_i]
@@ -230,6 +232,7 @@ def plot():
                     if load_iter < max_len:
                         max_len = load_iter 
                         for i in range(0, seed-1):
+                            R_test_avg.append(R_test_avg_i)
                             R_test_avg[i] = R_test_avg[i][0:max_len, :]
                     R_test_avg_i = R_test_avg_i[0:max_len, :]
                     R_test_avg += [R_test_avg_i]
@@ -269,6 +272,7 @@ def plot():
                     if load_iter < max_len:
                         max_len = load_iter 
                         for i in range(0, seed-1):
+                            R_test_avg.append(R_test_avg_i)
                             R_test_avg[i] = R_test_avg[i][0:max_len, :]
                     R_test_avg_i = R_test_avg_i[0:max_len, :]
                     R_test_avg += [R_test_avg_i]
@@ -307,6 +311,7 @@ def plot():
                     if load_iter < max_len:
                         max_len = load_iter 
                         for i in range(0, seed-1):
+                            R_test_avg.append(R_test_avg_i)
                             R_test_avg[i] = R_test_avg[i][0:max_len, :]
                     R_test_avg_i = R_test_avg_i[0:max_len, :]
                     R_test_avg += [R_test_avg_i]
@@ -345,6 +350,7 @@ def plot():
                     if load_iter < max_len:
                         max_len = load_iter 
                         for i in range(0, seed-1):
+                            R_test_avg.append(R_test_avg_i)
                             R_test_avg[i] = R_test_avg[i][0:max_len, :]
                     R_test_avg_i = R_test_avg_i[0:max_len, :]
                     R_test_avg += [R_test_avg_i]
@@ -383,6 +389,7 @@ def plot():
                     if load_iter < max_len:
                         max_len = load_iter 
                         for i in range(0, seed-1):
+                            R_test_avg.append(R_test_avg_i)
                             R_test_avg[i] = R_test_avg[i][0:max_len, :]
                     R_test_avg_i = R_test_avg_i[0:max_len, :]
                     R_test_avg += [R_test_avg_i]
@@ -417,6 +424,7 @@ def plot():
                     if load_iter < max_len:
                         max_len = load_iter 
                         for i in range(0, seed-1):
+                            R_test_avg.append(R_test_avg_i)
                             R_test_avg[i] = R_test_avg[i][0:max_len, :]
                     R_test_avg_i = R_test_avg_i[0:max_len, :]
                     R_test_avg += [R_test_avg_i]
@@ -452,6 +460,7 @@ def plot():
                     if load_iter < max_len:
                         max_len = load_iter 
                         for i in range(0, seed-1):
+                            R_test_avg.append(R_test_avg_i)
                             R_test_avg[i] = R_test_avg[i][0:max_len, :]
                     R_test_avg_i = R_test_avg_i[0:max_len, :]
                     R_test_avg += [R_test_avg_i]
@@ -485,6 +494,7 @@ def plot():
                     if load_iter < max_len:
                         max_len = load_iter 
                         for i in range(0, seed-1):
+                            R_test_avg.append(R_test_avg_i)
                             R_test_avg[i] = R_test_avg[i][0:max_len, :]
                     R_test_avg_i = R_test_avg_i[0:max_len, :]
                     R_test_avg += [R_test_avg_i]
