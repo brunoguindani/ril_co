@@ -626,6 +626,7 @@ def plot():
             plt.ylabel('Cumulative rewards', fontsize=fontsize-2)
             # plt.xticks(fontsize=fontsize-2)
             plt.xticks([0, 5e6, 10e6, 15e6, 20e6], fontsize=fontsize-2)
+            # plt.ylim(-10, 2510)
 
             plt.yticks(fontsize=fontsize-2)
             plt.tight_layout()
