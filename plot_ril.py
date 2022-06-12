@@ -77,7 +77,7 @@ def plot():
     m_return_list = discr.m_return_list
 
     # main plot with policy snapshots in main paper
-    plot_methods = ["ril_co_apl", "ail_apl", "ail_logistic", "ail_unhinged"]  # ["ril_co_apl", "ail_apl", "ail_logistic", "ail_unhinged", "fairl", "vild", "bc"] 
+    plot_methods = ["ril_co_apl", "ail_apl", "ail_logistic", "ail_unhinged", "fairl", "vild", "bc"] 
     plot_aug = ""
 
     # ## main plot with gaussian noise in main paper
