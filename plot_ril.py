@@ -605,8 +605,8 @@ def plot():
                     errorfill(x_ax, y_plot, yerr=y_err, color=c_tmp[i], linestyle=l_tmp[i], linewidth=linewidth, label=gail_legend[i], shade=1)
 
             if plot_large == 1 :
-            #     ax.legend(prop={"size":fontsize-4}, frameon=True, framealpha=1, ncol=2, loc='lower right')  
-                ax.legend(prop={"size":fontsize-4}, frameon=True, framealpha=1, ncol=2, loc="upper left", bbox_to_anchor=(0.19,0.52))
+                 ax.legend(prop={"size":fontsize-10}, frameon=True, framealpha=1, ncol=3, loc='lower right')  
+                # ax.legend(prop={"size":fontsize-4}, frameon=True, framealpha=1, ncol=2, loc="upper left", bbox_to_anchor=(0.19,0.52))
                 # ax.legend(prop={"size":fontsize}, frameon=True, framealpha=1, ncol=1, loc='lower right')  # slide
                 # ax.legend(prop={"size":fontsize}, frameon=True, framealpha=1, ncol=1, loc='upper left')  # slide
 
